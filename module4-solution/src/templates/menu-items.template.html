@@ -1,0 +1,12 @@
+<div>
+  <div class="row" ng-repeat="item in $ctrl.items">
+    <div class="col-md-3">
+      {{ item.name }}
+    </div>
+    <div class="col-md-9">
+      {{ item.description }}
+    </div>
+  </div>
+  <div class="error" ng-if="$ctrl.items.length === 0">Nothing found</div>
+</div>
+

@@ -1,0 +1,9 @@
+<ul>
+  <li ng-repeat="category in $ctrl.categories">
+    <a ui-sref="items({categoryShortName: category.short_name})">
+      {{ category.name }}
+    </a>
+  </li>
+</ul>
+<div class="error" ng-if="$ctrl.categories.length === 0">Nothing found</div>
+
