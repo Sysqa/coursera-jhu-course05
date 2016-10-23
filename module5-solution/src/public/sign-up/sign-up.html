@@ -1,0 +1,78 @@
+<div class="container signup">
+  <h2 class="text-center">Sign Up</h2>
+  <form class="form-horizontal" name="signUpForm" novalidate>
+    <div class="form-group">
+      <label class="control-label col-sm-6" for="firstName">First Name:</label>
+      <div class="col-sm-6">
+        <input type="text" name="firstName" ng-model="signUpCtrl.user.firstName" required />
+        <div
+          ng-if="signUpForm.firstName.$error.required &&
+                 signUpForm.firstName.$touched">
+          Fist Name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-6" for="lastName">Last Name:</label>
+      <div class="col-sm-6">
+        <input type="text" name="lastName" ng-model="signUpCtrl.user.lastName" required />
+        <div
+          ng-if="signUpForm.lastName.$error.required &&
+                 signUpForm.lastName.$touched">
+          Last Name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-6" for="email">Email Address:</label>
+      <div class="col-sm-6">
+        <input type="email" name="email" ng-model="signUpCtrl.user.email" required />
+        <div
+          ng-if="signUpForm.email.$invalid &&
+                signUpForm.email.$touched">
+          Email Address must be a valid email format
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label class="control-label col-sm-6" for="phone">Phone Number:</label>
+      <div class="col-sm-6">
+        <input type="text" name="phone" placeholder="###-###-####"
+          ng-model="signUpCtrl.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})"/>
+        <div
+          ng-if="signUpForm.phone.$invalid &&
+                 signUpForm.phone.$touched">
+          Phone must be in the format: ###-###-####
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-6" for="favoriteDishNumber">Menu Number:</label>
+      <div class="col-sm-6">
+        <input type="text" name="favoriteDishNumber"
+          ng-model="signUpCtrl.user.favoriteDishNumber" />
+        <div
+          ng-if="signUpCtrl.error">
+          No such menu number exists
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-6 col-sm-6">
+        <button type="submit" class="btn btn-default"
+          ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.signUp(signUpForm)">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+  <h3 class="text-center" ng-if="signUpCtrl.success">
+    Your information has been saved
+  </h3>
+</div>
+
